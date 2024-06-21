@@ -1,0 +1,26 @@
+<h1 mat-dialog-title> Nouveau Poste</h1>
+<div mat-dialog-content>
+  <p>Quel est le nom du poste à ajouter ?</p>
+  <p>
+  <mat-form-field class="input">
+    <mat-label>Nom du Poste</mat-label>
+    <input matInput [(ngModel)]="libelle">
+  </mat-form-field>
+</p>
+<p>
+  <mat-form-field class="input">
+    <mat-label md-no-asterisk>Service</mat-label>
+    <mat-select [(ngModel)]="service">
+      <mat-option>--</mat-option>
+      @for (service of servicesList; track service) {
+        <mat-option [value]="service">{{service.libelle}}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+</p>
+</div>
+
+<div mat-dialog-actions  style="display: flex;justify-content: space-between;">
+  <button mat-raised-button color="primary" (click)="onNoClick()">Non merci</button>
+  <button mat-raised-button color="accent" (click)="save()" cdkFocusInitial>Editer le poste</button>
+</div>

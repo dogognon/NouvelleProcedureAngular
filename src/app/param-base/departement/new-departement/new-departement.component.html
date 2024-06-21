@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Veuillez renseigner le nom du département à ajouter ?</h1>
+<div mat-dialog-content>
+ <br>
+  <mat-form-field>
+    <mat-label>Nom du département</mat-label>
+    <input matInput [(ngModel)]="libelle">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions  style="display: flex;justify-content: space-between;">
+  <button  mat-raised-button color="primary" (click)="onNoClick()">Non merci</button>
+  <button mat-raised-button color="accent" (click)="save()" cdkFocusInitial>Ajouter le département</button>
+</div>

@@ -1,0 +1,90 @@
+<mat-grid-list cols="4"  gutterSize="2px" >
+  <mat-grid-tile  cols="1" [colspan]="1" [rowspan]="1" [style.background]="'white'" [style.overflow]="'auto'">
+    @if(list_departement && list_departement.length > 0){
+      <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+        <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+          <button mat-icon-button disabled></button>
+
+          <mat-icon matListItemIcon>folder</mat-icon>
+          <!--<mat-checkbox  value="node" color="primary"> </mat-checkbox>  -->
+          <button mat-button (click)="ListePDF(node)" >       {{node.item}} </button>
+
+        </mat-tree-node>
+        <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding>
+          <button mat-icon-button
+                  [attr.aria-label]="'Toggle ' + node.item" matTreeNodeToggle>
+            <mat-icon class="mat-icon-rtl-mirror">
+              {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+            </mat-icon>
+          </button>
+          <mat-icon matListItemIcon>folder</mat-icon>
+          <button mat-button (click)="ListePDF(node)"> {{node.item}} </button>
+          @if (node.isLoading) {
+            <mat-progress-bar
+                mode="indeterminate"
+                class="example-tree-progress-bar"></mat-progress-bar>
+          }
+        </mat-tree-node>
+      </mat-tree>
+    } @else {
+      <h2>Aucun departement</h2>
+    }
+    </mat-grid-tile>
+    <mat-grid-tile cols="1" [colspan]="2.5" [rowspan]="2" [style.background]="'lightgray'">
+      @if (pdfFile) {
+        <ngx-extended-pdf-viewer
+        ngSkipHydration
+        [showToolbar]="false"
+        [showSidebarButton]="false"
+        [showFindButton]="false"
+        [showPagingButtons]="false"
+        [showDrawEditor]="false"
+        [showStampEditor]="false"
+        [showTextEditor]="false"
+        [showZoomButtons]="false"
+        [showPresentationModeButton]="false"
+        [showOpenFileButton]="false"
+        [showPrintButton]="false"
+        [showDownloadButton]="false"
+        [showSecondaryToolbarButton]="false"
+        [showRotateButton]="false"
+        [showHandToolButton]="false"
+        [showScrollingButton]="false"
+        [showSpreadButton]="false"
+        [showPropertiesButton]="false"
+        [textLayer]="true"
+        [src]="pdfFile" class="div-tree">
+      </ngx-extended-pdf-viewer>
+      } @else {
+        <div class="div-list-procedure">
+        @if (listpdf.length != 0 ) {
+          <h1> Liste de Procédure :  </h1>
+        <mat-list role="list">
+          @for (pdf of listpdf; track pdf) {
+            <mat-list-item lines="3" role="listitem" (click)="seledtedpdf(pdf)" >
+              <button mat-button style="height: 100%;">
+                <mat-icon matListIcon>note</mat-icon>
+                <div style="max-width:300px; display:block;">
+                <span matListItemTitle >{{pdf.binaire_id.fileName}}</span>
+                <p matListItemLine>
+                  <span >{{pdf.commentaire }}</span><br>
+                  <span >{{pdf.createdAt | date}}</span>
+                </p>
+  
+              </div>
+              </button>
+         </mat-list-item>
+        }
+      </mat-list>
+  
+        } @else {
+          <div class="div-list-procedure">
+          <h5>Aucune procédure n'a été trouvé.</h5>
+          <div mat-subheader>Veuillez selectionner un departement ou un service ou un poste.</div>
+          </div>
+        }
+      </div>
+      }
+
+    </mat-grid-tile>
+</mat-grid-list>

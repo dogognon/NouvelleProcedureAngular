@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Supprimer Service</h1>
+<div mat-dialog-content>
+ Voulez-vous supprimer ce service {{services.libelle}}?
+</div>
+<div mat-dialog-actions  style="display: flex;justify-content: space-between;">
+  <button mat-raised-button color="primary" (click)="onNoClick()">Non merci</button>
+  <button mat-raised-button color="warn" (click)="delete(services)" cdkFocusInitial>Editer le département</button>
+</div>

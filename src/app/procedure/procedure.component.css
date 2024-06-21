@@ -1,0 +1,64 @@
+.example-icon {
+  padding: 0 14px;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+
+/**.mat-grid-tile {
+  background: lightblue;
+}*/
+
+.div-tree{
+  width: 100%;
+  height: 100%;
+  
+}
+.example-tree {
+  width: 100%;
+  height: 80%;
+}
+.example-tree-progress-bar {
+  margin-left: 30px;
+}
+
+.example-pdf-viewer{
+  width: 100%;
+  height: 100%;
+}
+.mat-mdc-list-item-icon {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+
+.pdfViewer.singlePageView .page {
+  margin: 0;
+}
+
+.example-tree-progress-bar {
+  margin-left: 30px;
+}
+.mat-tree{
+  height: 100%;
+  width: 100%;
+}
+.mat-grid-tile-content {
+	display: block;
+}
+.div-list-procedure{
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mat-mdc-button > .mat-icon {
+  font-size: 5.125rem;
+  height: 5.125rem;
+  width: 5.125rem;
+
+}

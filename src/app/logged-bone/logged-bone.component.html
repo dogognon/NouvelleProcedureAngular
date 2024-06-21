@@ -1,0 +1,129 @@
+<mat-toolbar>
+  @if(this.auth.hasRole('Administrateur')) {
+    <ng-container *ngTemplateOutlet="myTemplate"></ng-container>
+  }@else {
+  
+  }
+
+  <ng-template #myTemplate let-name="name">
+    <button type="button" mat-button (click)="drawer.toggle()">
+      @if(drawer.opened) {
+        <mat-icon>close</mat-icon>
+      }@else {
+        <mat-icon>menu</mat-icon>
+      }
+    </button>
+    <span class="spacer"></span>
+  </ng-template>
+  <img mat-card-image [ngStyle]="this.auth.hasRole('Administrateur') ? {left:'0px',position:'relative'} : {left:'-10%',position:'absolute'}" src="../../assets/images/logo-clair.png" >
+  <span class="spacer"></span>
+ <!-- <button mat-button routerLink="/procedure" [matMenuTriggerFor]="editionMenu">Procedure</button>
+<mat-menu #editionMenu="matMenu" yPosition="below">
+
+</mat-menu>-->
+<button mat-button (click)="logout()">
+  <span style="color:red">Me déconnecter</span>
+  <mat-icon
+    aria-hidden="false"
+    aria-label="logout icon"
+    fontIcon="logout"
+    color="warn"
+  ></mat-icon>
+</button>
+</mat-toolbar>
+
+<mat-drawer-container class="sidenav-container" [hasBackdrop]="true" autosize>
+  <mat-drawer #drawer class="sidenav" mode="push" >
+    <mat-menu></mat-menu>
+    <!-- Menu-->
+    <div class="button-container">
+    <h2>Gestion des Procedures</h2>
+    <button mat-menu-item (click)="drawer.close()" routerLink="/procedure"><!--<mat-icon>note</mat-icon>-->Lire une procedure</button>
+    <button mat-menu-item (click)="drawer.close()"  routerLink="/procedure/nouveau"><!--<mat-icon>add</mat-icon>-->Ajouter une procedure</button>
+    <button mat-menu-item (click)="drawer.close()"  routerLink="/procedure/recherche"><!--<mat-icon>search</mat-icon>-->Rechercher une procédure</button>
+      
+    <h2>Configuration de base</h2>
+    <button mat-menu-item (click)="drawer.close()" routerLink="/admin/departement">Département</button>
+    <button mat-menu-item (click)="drawer.close()" routerLink="/admin/service">Service</button>
+    <button mat-menu-item (click)="drawer.close()" routerLink="/admin/poste">Poste</button>
+
+    <h2>Paramètre de l'application</h2>
+    <button mat-menu-item (click)="drawer.close()" routerLink="/admin/utilisateur">Utilisateur</button>
+  </div>
+  </mat-drawer>
+<!-- Content -->
+  <router-outlet></router-outlet>
+</mat-drawer-container>
+
+
+
+
+
+
+
+  
+    <!--
+
+
+
+        <button mat-menu-item (click)="drawer.close()">Ajouter une procedure</button>
+      <button mat-menu-item (click)="drawer.close()">Rechercher une procedure</button>
+
+<button mat-button routerLink="/procedure"> Nouvelle Procedure</button>
+
+
+
+<button mat-button routerLink="/procedure" [matMenuTriggerFor]="editionMenu">Edition</button>
+<mat-menu #editionMenu="matMenu" yPosition="below">
+<button mat-menu-item >Ajouter une procedure</button>
+<button mat-menu-item >rechercher une procedure</button>
+</mat-menu>
+
+<span class="spacer"></span>
+
+<mat-menu #parametreMenu="matMenu" yPosition="below">
+<button mat-menu-item routerLink="/admin/departement">Département</button>
+<button mat-menu-item routerLink="/admin/service">Service</button>
+<button mat-menu-item routerLink="/admin/poste">Poste</button>
+<button mat-menu-item routerLink="/admin/utilisateur">Utilisateur</button>
+</mat-menu>
+
+<span class="spacer"></span>
+
+<button mat-button routerLink="/admin">Parametre de Base</button>
+<span class="spacer"></span>
+<button mat-button (click)="openDialog()">Ajouter</button>
+
+<button mat-icon-button>
+  <mat-icon
+    aria-hidden="false"
+    aria-label="login icon"
+    fontIcon="login"
+    [ariaSetSize]="50"
+    color="warn"
+    color="accent"
+  ></mat-icon>
+</button>
+<span  color="warn">Se deconnecter</span>
+
+
+<mat-toolbar [style.position]="'relative'"   style=" margin-top: 10px; margin-bottom: 10px;">
+<button mat-button (click)="openListDialog()">Liste de procedure</button>
+<span class="spacer"></span>
+<!--<button mat-button routerLink="/procedure">Lire une procedure</button>-
+<span class="spacer"></span>
+<button mat-button (click)="openDialog()">Ajouter une procedure</button>
+</mat-toolbar>
+
+
+  <button mat-icon-button extended  (click)="logout()">
+    <div class="deconnecter-div">
+    <mat-icon
+      aria-hidden="false"
+      aria-label="logout icon"
+      fontIcon="logout"
+    ></mat-icon>
+    <span  color="warn">Se deconnecter</span>
+  </div>
+  </button>
+-->

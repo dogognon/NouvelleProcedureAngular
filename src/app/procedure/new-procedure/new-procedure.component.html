@@ -1,0 +1,176 @@
+<div class="contenaire">
+  <h1> Nouvelle Procédure</h1>
+<div >
+  <p>Quel est la procédure à ajouter ?</p>
+  <mat-grid-list cols="4" rowHeight="40rem" >
+    <mat-grid-tile [colspan]="1" [rowspan]="1" [style.background]="'#d3d3d3'">
+    <div class="mat-grid-tile-content">
+      <table cellspacing="0" style="width: 90%; margin-inline: auto; margin-top: 0px;">
+        <tr>
+          <td>
+            <mat-form-field class="input">
+              <mat-label>Nom de la procédure</mat-label>
+            <input matInput placeholder="Nom de la procédure"  type="text" [(ngModel)]="nom"  maxlength="255" required>
+            @if (nom) {
+              <button matSuffix mat-icon-button aria-label="Clear" (click)="nom=''">
+                <mat-icon>close</mat-icon>
+              </button>
+            }
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="input">
+              <mat-label>Un commentaire sur la procédure</mat-label>
+            <textarea matInput placeholder="Un commentaire sur la procédure"  type="text"  [(ngModel)]="commentaire" maxlength="255"></textarea>
+            <!--@if (commentaire) {
+              <button matSuffix mat-icon-button aria-label="Clear" (click)="commentaire=''">
+                <mat-icon>close</mat-icon>
+              </button>
+            }-->
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+        <mat-form-field class="input">
+          <label class="custum-file-upload" for="file" appDrag (files)="filesDropped($event)">
+            <div class="icon">
+              @if(!this.file){
+                <svg xmlns="http://www.w3.org/2000/svg" fill="" viewBox="0 0 24 24"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"> <path fill="" d="M10 1C9.73478 1 9.48043 1.10536 9.29289 1.29289L3.29289 7.29289C3.10536 7.48043 3 7.73478 3 8V20C3 21.6569 4.34315 23 6 23H7C7.55228 23 8 22.5523 8 22C8 21.4477 7.55228 21 7 21H6C5.44772 21 5 20.5523 5 20V9H10C10.5523 9 11 8.55228 11 8V3H18C18.5523 3 19 3.44772 19 4V9C19 9.55228 19.4477 10 20 10C20.5523 10 21 9.55228 21 9V4C21 2.34315 19.6569 1 18 1H10ZM9 7H6.41421L9 4.41421V7ZM14 15.5C14 14.1193 15.1193 13 16.5 13C17.8807 13 19 14.1193 19 15.5V16V17H20C21.1046 17 22 17.8954 22 19C22 20.1046 21.1046 21 20 21H13C11.8954 21 11 20.1046 11 19C11 17.8954 11.8954 17 13 17H14V16V15.5ZM16.5 11C14.142 11 12.2076 12.8136 12.0156 15.122C10.2825 15.5606 9 17.1305 9 19C9 21.2091 10.7909 23 13 23H20C22.2091 23 24 21.2091 24 19C24 17.1305 22.7175 15.5606 20.9844 15.122C20.7924 12.8136 18.858 11 16.5 11Z" clip-rule="evenodd" fill-rule="evenodd"></path> </g></svg>
+        
+              }@else{
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="550.801px" height="550.801px" viewBox="0 0 550.801 550.801" style="enable-background:new 0 0 550.801 550.801;"
+	 xml:space="preserve">
+<g>
+	<path d="M160.381,282.225c0-14.832-10.299-23.684-28.474-23.684c-7.414,0-12.437,0.715-15.071,1.432V307.6
+		c3.114,0.707,6.942,0.949,12.192,0.949C148.419,308.549,160.381,298.74,160.381,282.225z"/>
+	<path d="M272.875,259.019c-8.145,0-13.397,0.717-16.519,1.435v105.523c3.116,0.729,8.142,0.729,12.69,0.729
+		c33.017,0.231,54.554-17.946,54.554-56.474C323.842,276.719,304.215,259.019,272.875,259.019z"/>
+	<path d="M488.426,197.019H475.2v-63.816c0-0.398-0.063-0.799-0.116-1.202c-0.021-2.534-0.827-5.023-2.562-6.995L366.325,3.694
+		c-0.032-0.031-0.063-0.042-0.085-0.076c-0.633-0.707-1.371-1.295-2.151-1.804c-0.231-0.155-0.464-0.285-0.706-0.419
+		c-0.676-0.369-1.393-0.675-2.131-0.896c-0.2-0.056-0.38-0.138-0.58-0.19C359.87,0.119,359.037,0,358.193,0H97.2
+		c-11.918,0-21.6,9.693-21.6,21.601v175.413H62.377c-17.049,0-30.873,13.818-30.873,30.873v160.545
+		c0,17.043,13.824,30.87,30.873,30.87h13.224V529.2c0,11.907,9.682,21.601,21.6,21.601h356.4c11.907,0,21.6-9.693,21.6-21.601
+		V419.302h13.226c17.044,0,30.871-13.827,30.871-30.87v-160.54C519.297,210.838,505.47,197.019,488.426,197.019z M97.2,21.605
+		h250.193v110.513c0,5.967,4.841,10.8,10.8,10.8h95.407v54.108H97.2V21.605z M362.359,309.023c0,30.876-11.243,52.165-26.82,65.333
+		c-16.971,14.117-42.82,20.814-74.396,20.814c-18.9,0-32.297-1.197-41.401-2.389V234.365c13.399-2.149,30.878-3.346,49.304-3.346
+		c30.612,0,50.478,5.508,66.039,17.226C351.828,260.69,362.359,280.547,362.359,309.023z M80.7,393.499V234.365
+		c11.241-1.904,27.042-3.346,49.296-3.346c22.491,0,38.527,4.308,49.291,12.928c10.292,8.131,17.215,21.534,17.215,37.328
+		c0,15.799-5.25,29.198-14.829,38.285c-12.442,11.728-30.865,16.996-52.407,16.996c-4.778,0-9.1-0.243-12.435-0.723v57.67H80.7
+		V393.499z M453.601,523.353H97.2V419.302h356.4V523.353z M484.898,262.127h-61.989v36.851h57.913v29.674h-57.913v64.848h-36.593
+		V232.216h98.582V262.127z"/>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+</svg>
+
+              }
+             </div>
+            <div class="text">
+               <span>
+                @if(!this.file){
+                  Cliquez pour télécharger la procedure
+                }@else{
+                  {{this.file.name}}
+                }
+                
+             
+              </span>
+               </div>
+               <input matInput readonly type="text" id="fakeFileInput" (click)="hiddenInput.click()">
+              <input hidden id="file" type="file" accept=".pdf" #hiddenInput (change)="GetFileOnLoad($event)">
+            </label>
+       </mat-form-field>
+      </td>
+    </tr>
+      </table>
+    </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="3" [rowspan]="1" [style.background]="'#d3d3d3'" style="width: 30%;">
+      @if(list_departement && list_departement.length > 0){
+        <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+          <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+            <button mat-icon-button disabled></button>
+
+            <mat-icon matListItemIcon>folder</mat-icon>
+            <!--  -->
+            <button mat-button> <mat-checkbox
+              [checked]="allComplete[node.level]"
+              [indeterminate]="someComplete(node)"
+              (change)="setAll(node,$event.checked)"
+              [(ngModel)]="node.completed"
+              (ngModelChange)="updateAllComplete(node)"
+              color="primary"> </mat-checkbox>      {{node.item}} </button>
+
+          </mat-tree-node>
+          <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding>
+            <button mat-icon-button
+                    [attr.aria-label]="'Toggle ' + node.item" matTreeNodeToggle>
+              <mat-icon class="mat-icon-rtl-mirror">
+                {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+              </mat-icon>
+            </button>
+            <mat-icon matListItemIcon>folder</mat-icon>
+            <button mat-button> <mat-checkbox
+              [checked]="allComplete[node.level]"
+              [indeterminate]="someComplete(node)"
+              (change)="setAll(node,$event.checked)"
+              [(ngModel)]="node.completed"
+              (ngModelChange)="updateAllComplete(node)"
+              color="primary"> </mat-checkbox> {{node.item}} </button>
+            @if (node.isLoading) {
+              <mat-progress-bar
+                  mode="indeterminate"
+                  class="example-tree-progress-bar"></mat-progress-bar>
+            }
+          </mat-tree-node>
+        </mat-tree>
+      } @else {
+        <h2>Aucun departement</h2>
+      }
+    </mat-grid-tile>
+
+    </mat-grid-list>
+
+ <!-- <mat-form-field>
+    <mat-label>Nom du département</mat-label>
+    <input matInput [(ngModel)]="libelle">
+  </mat-form-field> [mat-dialog-close]="" cdkFocusInitial  (click)="onNoClick()"-->
+</div>
+<div style="display: flex;justify-content: space-between; padding: 10px;">
+  <button mat-fab extended color="primary" routerLink="/procedure">Non merci</button> 
+ 
+  <button  mat-fab extended color="accent" (click)="save()">Ajouter la procédure</button>
+</div>
+</div>

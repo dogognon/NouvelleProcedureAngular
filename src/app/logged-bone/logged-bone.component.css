@@ -1,0 +1,62 @@
+.spacer {
+  flex: 1 1 auto;
+}
+.button-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.logout-button {
+  margin-top: auto; 
+  width: 100%; 
+}
+
+
+  mat-mdc-menu-item-text{
+    width: 100%;
+  }
+
+
+  .mat-toolbar-single-row {
+    align-items: center;
+  }
+
+
+
+  mat-toolbar img {	
+    transform: scale(0.2);
+}
+.mat-drawer-content{
+  padding: 10%;
+}
+
+.sidenav-container {
+  width: 100%;
+  height: 100%;
+}
+
+
+
+
+.example-sidenav-content {
+  padding: 10px;
+  height: 100%;
+  width: 100%;
+ 
+}
+
+.sidenav {
+  width: 20%;
+  padding: 10px;
+}
+
+.mat-icon {
+  transform: scale(2);
+  padding-bottom: 0px;
+}
+
+#deconnecter{
+  padding-bottom: 3px;
+}
+

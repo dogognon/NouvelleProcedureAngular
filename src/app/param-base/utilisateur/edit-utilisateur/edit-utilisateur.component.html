@@ -1,0 +1,55 @@
+<h1 mat-dialog-title> Nouveau Utilisateur</h1>
+<div mat-dialog-content>
+  <p>Quel est le nom de l'Utilisateur à ajouter ?</p>
+  <p>
+  <mat-form-field>
+    <mat-label>Nom et prénoms de l' Utilisateur</mat-label>
+    <input matInput [(ngModel)]="nomprenoms">
+  </mat-form-field>
+</p>
+<p>
+  <mat-form-field>
+    <mat-label>Téléphone de l' Utilisateur</mat-label>
+    <input matInput [(ngModel)]="phone">
+  </mat-form-field>
+</p>
+<p>
+  <mat-form-field>
+    <mat-label>Adresse (email) de l' Utilisateur</mat-label>
+    <input matInput [(ngModel)]="email">
+  </mat-form-field>
+</p>
+<!--<p>
+  <mat-form-field>
+    <mat-label>mot de passe de l' Utilisateur</mat-label>
+    <input matInput [(ngModel)]="password">
+  </mat-form-field>
+</p>
+<p>
+  <mat-form-field class="input">
+    <mat-label md-no-asterisk>Role</mat-label>
+    <mat-select [(ngModel)]="role">
+      <mat-option>--</mat-option>
+      @for (role of rolesList; track role) {
+        <mat-option [value]="role">{{role.roleName}}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+</p>-->
+<p>
+  <mat-form-field class="input">
+    <mat-label md-no-asterisk>Poste</mat-label>
+    <mat-select [(ngModel)]="poste">
+      <mat-option>--</mat-option>
+      @for (poste of postesList; track poste) {
+        <mat-option [value]="poste">{{poste.libelle}}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+</p>
+</div>
+<div mat-dialog-actions  style="display: flex;justify-content: space-between;">
+    <button mat-raised-button color="primary" (click)="onNoClick()">Non merci</button>
+    <button mat-raised-button color="accent" (click)="save()" cdkFocusInitial>Ajouter l'Utilisateur<</button>
+  </div>
+  

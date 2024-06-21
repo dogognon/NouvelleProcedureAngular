@@ -1,0 +1,36 @@
+<mat-grid-list cols="2" rows="1"  [style.background-color]="'#efefef'">
+  <mat-grid-tile colspan="2" rowspan="1">
+  <mat-card class="mat-elevation-24">
+    <mat-card-header>
+      <h2>Manuel de procédure - Connexion</h2>
+  </mat-card-header>
+    <img mat-card-image src="../../assets/images/logo-clair.png" >
+    <mat-card-content>
+      @if (errorMessage) {
+          <mat-error>{{errorMessage}}</mat-error>
+      }
+    <!--<mat-divider></mat-divider>-->
+      <form [formGroup]="loginformgroup">
+      <div>
+        <mat-form-field appearance="outline">
+              <input matInput placeholder="Username"  formControlName="username">
+              </mat-form-field>
+            </div>
+            <div>
+            <mat-form-field appearance="outline">
+            <input matInput placeholder="Password" type="password" formControlName="password">
+          </mat-form-field>
+        </div>
+      </form>
+      <!--[style.display]="showSpinner ? 'block' : 'none'"
+      <mat-spinner></mat-spinner>-->
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-flat-button (click)="handleLogin()" color="accent" [style.color]="'white'">Login</button>
+    </mat-card-actions>
+ 
+ 
+  </mat-card>
+
+  </mat-grid-tile>
+</mat-grid-list>

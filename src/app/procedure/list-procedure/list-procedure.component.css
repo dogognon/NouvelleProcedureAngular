@@ -1,0 +1,20 @@
+.mat-mdc-form-field {
+    font-size: 14px;
+    width: 70%;
+  }
+  .mat-mdc-table{
+      min-width: 90%;
+      margin: auto;
+  }
+  .filter-container{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-evenly;
+    padding-inline: 50px;
+  }
+  
+    .base-container {
+      padding-top: 3%;
+    background-color: #d3d3d3;
+    height: 97%;
+  }

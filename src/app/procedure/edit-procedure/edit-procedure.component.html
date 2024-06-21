@@ -1,0 +1,89 @@
+<h1 mat-dialog-title> Editer Procédure</h1>
+<div mat-dialog-content>
+  <p>Quel est la procédure à editer ?</p>
+  <mat-grid-list cols="4"  gutterSize="2px">
+    <mat-grid-tile [colspan]="1" [rowspan]="1" [style.background]="'lightgray'" style="align-items: start;">
+
+      <table cellspacing="0" style="width: 40%; margin-inline: auto;">
+        <tr>
+          <td>
+            <mat-form-field class="input">
+            <input matInput placeholder="Nom"  type="text" [(ngModel)]="nom" required>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="input">
+            <input matInput placeholder="commentaire"  type="text"  [(ngModel)]="commentaire" required>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+        <mat-form-field class="input">
+          <mat-label>Selectionner votre fichier</mat-label>
+           <input matInput readonly type="text" id="fakeFileInput" (click)="hiddenInput.click()">
+          <input hidden type="file" accept=".pdf" #hiddenInput (change)="GetFileOnLoad($event)">
+          <mat-icon matSuffix>folder_open</mat-icon>
+       </mat-form-field>
+      </td>
+    </tr>
+      </table>
+
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="3" [rowspan]="2" [style.background]="'lightblue'" style="width: 30%;">
+      @if(list_departement && list_departement.length > 0){
+        <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+          <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+            <button mat-icon-button disabled></button>
+
+            <mat-icon matListItemIcon>folder</mat-icon>
+            <!--  -->
+            <button mat-button> <mat-checkbox
+              [checked]="allComplete[node.level]"
+              [indeterminate]="someComplete(node)"
+              (change)="setAll(node,$event.checked)"
+              [(ngModel)]="node.completed"
+              (ngModelChange)="updateAllComplete(node)"
+              color="primary"> </mat-checkbox>      {{node.item}} </button>
+
+          </mat-tree-node>
+          <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding>
+            <button mat-icon-button
+                    [attr.aria-label]="'Toggle ' + node.item" matTreeNodeToggle>
+              <mat-icon class="mat-icon-rtl-mirror">
+                {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+              </mat-icon>
+            </button>
+            <mat-icon matListItemIcon>folder</mat-icon>
+            <button mat-button> <mat-checkbox
+              [checked]="allComplete[node.level]"
+              [indeterminate]="someComplete(node)"
+              (change)="setAll(node,$event.checked)"
+              [(ngModel)]="node.completed"
+              (ngModelChange)="updateAllComplete(node)"
+              color="primary"> </mat-checkbox> {{node.item}} </button>
+            @if (node.isLoading) {
+              <mat-progress-bar
+                  mode="indeterminate"
+                  class="example-tree-progress-bar"></mat-progress-bar>
+            }
+          </mat-tree-node>
+        </mat-tree>
+      } @else {
+        <h2>Aucun departement</h2>
+      }
+    </mat-grid-tile>
+
+    </mat-grid-list>
+
+ <!-- <mat-form-field>
+    <mat-label>Nom du département</mat-label>
+    <input matInput [(ngModel)]="libelle">
+  </mat-form-field> [mat-dialog-close]=""-->
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Non merci</button>
+  <button mat-button  cdkFocusInitial (click)="save()">Editer la procédure</button>
+</div>
